@@ -19,7 +19,7 @@ public abstract class ClientLevelMixin {
     @Inject(method = "tick(Ljava/util/function/BooleanSupplier;)V", at = @At("TAIL"))
     private void ghostskin$ghostParticles(BooleanSupplier hasTimeLeft, CallbackInfo ci) {
         ClientLevel level = (ClientLevel) (Object) this;
-        RandomSource random = level.random;
+        RandomSource random = level.getRandom();
 
         for (AbstractClientPlayer player : level.players()) {
             if (!player.hasEffect(MobEffects.INVISIBILITY)) {
